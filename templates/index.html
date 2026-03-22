@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能法律咨询助手</title>
+    <link rel="stylesheet" href="/static/layer.css?v=45">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar-overlay"></div>
+
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="app-title">
+                    <i class="fas fa-scale-balanced"></i>
+                    <span>智能法律咨询助手</span>
+                </div>
+                <button id="new-task-btn" class="new-task-btn">
+                    <i class="fas fa-plus"></i>
+                    新任务
+                </button>
+            </div>
+
+            <div class="mode-selector">
+                <div class="mode-option active" data-mode="workflow">
+                    <i class="fas fa-diagram-project"></i>
+                    <span>多智能体工作流</span>
+                </div>
+            </div>
+
+            <div class="task-list">
+                <div class="task-section">
+                    <h3>今天</h3>
+                    <div id="today-tasks" class="tasks"></div>
+                </div>
+                <div class="task-section">
+                    <h3>昨天</h3>
+                    <div id="yesterday-tasks" class="tasks"></div>
+                </div>
+                <div class="task-section">
+                    <h3>过去 7 天</h3>
+                    <div id="week-tasks" class="tasks"></div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button id="clear-all-tasks-btn" class="clear-all-btn">
+                    <i class="fas fa-trash-alt"></i>
+                    清理所有任务
+                </button>
+            </div>
+        </aside>
+
+        <main class="chat-area">
+            <div class="chat-header">
+                <button id="menu-toggle" class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="current-mode">
+                    <i id="mode-icon" class="fas fa-diagram-project"></i>
+                    <span id="mode-name">多智能体工作流</span>
+                </div>
+
+                <div class="chat-actions">
+                    <button id="share-btn" class="action-btn">
+                        <i class="fas fa-share"></i>
+                    </button>
+                    <div class="user-menu">
+                        <button id="user-menu-btn" class="action-btn">
+                            <i class="fas fa-user"></i>
+                            <span id="current-user-display"></span>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown hidden">
+                            <div class="dropdown-header">
+                                <i class="fas fa-user-circle"></i>
+                                <span id="dropdown-user-name"></span>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <button id="logout-btn" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                退出登录
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-container">
+                <div id="chat-window" class="chat-messages"></div>
+
+                <form id="chat-form" class="chat-input-form">
+                    <div class="layer-input-container">
+                        <div class="left-tools">
+                            <button type="button" id="attachment-btn" class="tool-btn" title="添加附件">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+
+                        <input type="text" id="user-input" class="layer-input" placeholder="询问 Layer" required autofocus />
+
+                        <div class="right-buttons">
+                            <button type="button" id="voice-btn" class="voice-btn" title="语音输入">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button type="submit" class="send-arrow-btn" title="发送">
+                                <i class="fas fa-arrow-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <div id="user-id-modal" class="modal">
+        <div class="modal-content">
+            <h3>欢迎使用智能法律咨询助手</h3>
+            <p>请输入您的用户 ID 以开始使用：</p>
+            <div class="input-group">
+                <input type="text" id="user-id-input" class="form-input" placeholder="请输入用户 ID" required />
+            </div>
+            <div class="modal-actions">
+                <button id="user-id-confirm" class="btn-primary">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.2/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+    <script src="/static/user-storage.js?v=2"></script>
+    <script src="/static/layer.js?v=43"></script>
+</body>
+</html>
