@@ -1,0 +1,45 @@
+# 智能法律咨询助手配置文件示例
+# 复制此文件为 config.yaml 并填写您的实际配置（不要提交真实 API Key）
+
+# OpenAI API 配置
+openai:
+  # API 基础地址
+  api_base: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  # API 密钥（请替换为您的实际密钥）
+  api_key: "your-api-key-here"
+  # 使用的模型
+  model: "qwen-plus"
+  # 温度参数（0-2，越高越随机）
+  temperature: 0.9
+
+# Redis 配置
+redis:
+  # Redis 服务器地址
+  host: "127.0.0.1"
+  # Redis 服务器端口
+  port: 6378
+
+# RAG（检索增强生成）配置
+rag:
+  # RAG 数据目录
+  folder_path: "./rag_data"
+  # FAISS 索引目录
+  index_path: "./faiss_index"
+  # Embedding 模型（用于文本向量化）
+  embedding_model: "Qwen/Qwen3-Embedding-0.6B"
+  # Rerank 模型（用于结果重排序）
+  rerank_model: "BAAI/bge-reranker-base"
+  # BM25 检索数量
+  bm25_k: 5
+  # FAISS 检索数量
+  faiss_k: 5
+  # Rerank 后保留的结果数量
+  top_n: 1
+  # 文本切片大小（字符数）
+  chunk_size: 500
+  # 文本切片重叠（字符数）
+  chunk_overlap: 50
+  # 使用的设备（cpu 或 cuda）
+  device: "cpu"
+
+
