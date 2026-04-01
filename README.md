@@ -139,7 +139,6 @@ python -m main.app
 ./local.sh
 ```
 
-访问 http://localhost:8000 即可使用。
 
 ---
 
